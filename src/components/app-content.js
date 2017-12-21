@@ -5,13 +5,15 @@ import Actions from './actions'
 import Repos from './repos'
 import PropTypes from 'prop-types'
 
-const AppContent = ({userinfo, repos, starred, handleSearch, getRepos}) => (
+const AppContent = ({
+  userinfo, repos, starred,
+  handleSearch, getRepos, getStarred}) => (
   <div className='app'>
     <Search handleSearch={handleSearch} />
     
     {!!userinfo && <Profile userinfo={userinfo}/>}
     
-    {!!userinfo && <Actions getRepos={getRepos}/>}
+    {!!userinfo && <Actions getRepos={getRepos} getStarred={getStarred}/>}
     
     {!!repos.length && 
       <Repos
